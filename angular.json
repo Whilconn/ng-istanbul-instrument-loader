@@ -15,8 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./coverage.webpack.js"
+            },
             "outputPath": "dist/ng-istanbul-instrument-loader",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -51,6 +54,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "sourceMap": true,
               "outputHashing": "all"
             },
             "development": {
